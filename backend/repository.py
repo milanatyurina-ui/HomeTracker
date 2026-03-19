@@ -1,7 +1,6 @@
 from sqlalchemy import select
-from backend.database import new_session, TasksOrm
+from database import new_session, TasksOrm
 from schemas import STaskAdd, STask
-
 
 class TaskRepository:
     @classmethod
@@ -23,3 +22,4 @@ class TaskRepository:
             task_models = result.scalars().all()
             task_schemas = [STask.model_validate(task_model) for task_model in task_models]
             return task_schemas
+
