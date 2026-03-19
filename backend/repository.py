@@ -1,5 +1,5 @@
 from sqlalchemy import select
-from database import new_session, TasksOrm
+from backend.database import new_session, TasksOrm
 from schemas import STaskAdd, STask
 
 
