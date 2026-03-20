@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, update, delete
 from sqlalchemy.orm import session
 
 from database import new_session, TasksOrm
@@ -29,6 +29,23 @@ class TaskRepository:
             await session.delete(task)
             await session.commit()
             return True
+
+    @classmethod
+    async def patch_one(cls, task_id: int, task_data: STask) -> STask | None:
+        async with new_session() as session:
+            query = (
+                update(TasksOrm).where(TasksOrm.id == task_id).values(
+                    **task_data.model_dump(exclude_unset=True, exclude={'id'})
+                ).returning(TasksOrm)
+            )
+            result = await session.execute(query)
+            await session.commit()
+            updated_orm = result.scalar_one_or_none()
+            if updated_orm:
+                return STask.model_validate(updated_orm)
+            return None
+
+
 
     @classmethod
     async def find_all(cls) -> list[STask]:

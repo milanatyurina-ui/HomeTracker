@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from repository import TaskRepository
 from schemas import STaskAdd, STask, STaskId
 
@@ -32,3 +32,10 @@ async def delete_task(task_id: int) -> None:
         return {"ok": True}
     else:
         return None
+
+@router.put("/{task_id}")
+async def update_task(task_id: int, task: STask) -> STask:
+    updated_task = await TaskRepository.patch_one(task_id, task)
+    if(updated_task is None):
+        raise HTTPException(status_code=404, detail="Task not found")
+    return updated_task
