@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field, ConfigDict
 from datetime import date, datetime
+from typing import Optional
 
 class SCategoryAdd(BaseModel):
     name: str
@@ -15,7 +16,7 @@ class SCategoryId(BaseModel):
 
 class STaskAdd(BaseModel):
     name: str
-    description: str = Field(None, max_length=100)
+    description: Optional[str] = Field(None, max_length=100)
     from_time: datetime
     to_time: datetime
     priority: int = Field(..., ge=1, le=5)

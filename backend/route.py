@@ -31,8 +31,8 @@ async def get_task(task_id: int) -> STask:
     return task
 
 @routerTasks.get("/by-category/{category_id}")
-async def get_category(category_id: int) -> list[STask]:
-    tasks = await TaskRepository.find_by_id_category(category_id)
+async def get_tasks_by_category(category_id: int) -> list[STask]:
+    tasks = await TaskRepository.find_tasks_by_id_category(category_id)
     return tasks
 
 @routerTasks.delete("/{task_id}")
