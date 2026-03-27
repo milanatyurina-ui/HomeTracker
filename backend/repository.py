@@ -1,8 +1,8 @@
 from sqlalchemy import select, update, delete
 from sqlalchemy.orm import session
 
-from database import new_session, TasksOrm, CategoryOrm
-from schemas import STaskAdd, STask, SCategoryAdd, SCategory
+from backend.database import new_session, TasksOrm, CategoryOrm
+from backend.schemas import STaskAdd, STask, SCategoryAdd, SCategory
 
 
 class TaskRepository:
