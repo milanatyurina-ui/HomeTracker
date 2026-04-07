@@ -1,0 +1,90 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400;
+    color: #FFFAEC;
+}
+
+a{
+    text-decoration: none;
+}
+
+.wrapper{
+    background: #FFFAEC;
+    width: 100%;
+}
+
+.container{
+    width: 1400px;
+    margin: 0 auto;
+}
+
+header{
+    background: #5D111A;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+header .logo{
+    text-transform: uppercase;
+    font-size: 30px;
+
+}
+
+header nav{
+    float: right;
+    width: 30%;
+}
+
+header nav ul{
+    list-style: none;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    color: #FFFAEC;
+}
+
+header nav ul li.btn button{
+    width: 20px;
+    height: 20px;
+    background: #FFFAEC;
+    border: none;
+    color: #5D111A;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content{
+    color: #5D111A;
+    padding: 50px 20px;
+}
+
+.main-content ul li article{
+    list-style: none;
+    display: grid;
+    gap: 500px;
+    grid-template-columns: repeat(5,0fr);
+    justify-items: center;
+}
+
+.stars{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+
